@@ -1,0 +1,87 @@
+{
+  "model_file": "security_model.joblib",
+  "sha256": "b70c24114f3d5a6e412b0de0a8e3128dabffba1b1bd2a2e112f614b170b185fd",
+  "bytes": 32638078,
+  "schema_version": 1,
+  "selected_model": "random_forest",
+  "threshold": 0.63177664169243,
+  "feature_count": 42,
+  "feature_columns": [
+    "dur",
+    "proto",
+    "service",
+    "state",
+    "spkts",
+    "dpkts",
+    "sbytes",
+    "dbytes",
+    "rate",
+    "sttl",
+    "dttl",
+    "sload",
+    "dload",
+    "sloss",
+    "dloss",
+    "sinpkt",
+    "dinpkt",
+    "sjit",
+    "djit",
+    "swin",
+    "stcpb",
+    "dtcpb",
+    "dwin",
+    "tcprtt",
+    "synack",
+    "ackdat",
+    "smean",
+    "dmean",
+    "trans_depth",
+    "response_body_len",
+    "ct_srv_src",
+    "ct_state_ttl",
+    "ct_dst_ltm",
+    "ct_src_dport_ltm",
+    "ct_dst_sport_ltm",
+    "ct_dst_src_ltm",
+    "is_ftp_login",
+    "ct_ftp_cmd",
+    "ct_flw_http_mthd",
+    "ct_src_ltm",
+    "ct_srv_dst",
+    "is_sm_ips_ports"
+  ],
+  "categorical_columns": [
+    "proto",
+    "service",
+    "state"
+  ],
+  "training_created_at_utc": "2026-10-19T10:07:40.663811+00:00",
+  "versions": {
+    "python_packages": {
+      "scikit_learn": "1.9.1",
+      "pandas": "3.0.1",
+      "numpy": "2.5.4"
+    }
+  },
+  "official_test": {
+    "accuracy": 0.8977189914006705,
+    "balanced_accuracy": 0.8889994359929505,
+    "precision": 0.858352265004563,
+    "recall": 0.9751610341480632,
+    "f1": 0.9130358452180558,
+    "roc_auc": 0.9835923302195693,
+    "pr_auc": 0.9876825008495285,
+    "brier_score": 0.0860079176008775,
+    "false_positive_rate": 0.19716216216216217,
+    "confusion_matrix": [
+      [
+        29705,
+        7295
+      ],
+      [
+        1126,
+        44206
+      ]
+    ]
+  }
+}

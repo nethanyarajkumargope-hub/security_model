@@ -1,0 +1,80 @@
+{
+  "model_file": "security_model.joblib",
+  "sha256": "eaad15296eae4046fecab2ae596d38d12d41e8719452f512c2d91f5d6793baf0",
+  "bytes": 222982,
+  "schema_version": 1,
+  "selected_model": "hist_gradient_boosting",
+  "threshold": 0.15876108216208243,
+  "feature_count": 41,
+  "feature_columns": [
+    "L4_SRC_PORT",
+    "L4_DST_PORT",
+    "PROTOCOL",
+    "L7_PROTO",
+    "IN_BYTES",
+    "IN_PKTS",
+    "OUT_BYTES",
+    "OUT_PKTS",
+    "TCP_FLAGS",
+    "CLIENT_TCP_FLAGS",
+    "SERVER_TCP_FLAGS",
+    "FLOW_DURATION_MILLISECONDS",
+    "DURATION_IN",
+    "DURATION_OUT",
+    "MIN_TTL",
+    "MAX_TTL",
+    "LONGEST_FLOW_PKT",
+    "SHORTEST_FLOW_PKT",
+    "MIN_IP_PKT_LEN",
+    "MAX_IP_PKT_LEN",
+    "SRC_TO_DST_SECOND_BYTES",
+    "DST_TO_SRC_SECOND_BYTES",
+    "RETRANSMITTED_IN_BYTES",
+    "RETRANSMITTED_IN_PKTS",
+    "RETRANSMITTED_OUT_BYTES",
+    "RETRANSMITTED_OUT_PKTS",
+    "SRC_TO_DST_AVG_THROUGHPUT",
+    "DST_TO_SRC_AVG_THROUGHPUT",
+    "NUM_PKTS_UP_TO_128_BYTES",
+    "NUM_PKTS_128_TO_256_BYTES",
+    "NUM_PKTS_256_TO_512_BYTES",
+    "NUM_PKTS_512_TO_1024_BYTES",
+    "NUM_PKTS_1024_TO_1514_BYTES",
+    "TCP_WIN_MAX_IN",
+    "TCP_WIN_MAX_OUT",
+    "ICMP_TYPE",
+    "ICMP_IPV4_TYPE",
+    "DNS_QUERY_ID",
+    "DNS_QUERY_TYPE",
+    "DNS_TTL_ANSWER",
+    "FTP_COMMAND_RET_CODE"
+  ],
+  "categorical_columns": [],
+  "training_created_at_utc": "2026-10-19T11:30:20.325564+00:00",
+  "versions": {
+    "scikit_learn": "1.9.1",
+    "pandas": "3.0.1",
+    "numpy": "2.5.4"
+  },
+  "held_out_test": {
+    "accuracy": 0.9976185402905381,
+    "balanced_accuracy": 0.9980210339740401,
+    "precision": 0.945985401459854,
+    "recall": 0.9984591679506933,
+    "f1": 0.9715142428785607,
+    "roc_auc": 0.9997928832385495,
+    "pr_auc": 0.9944505627960805,
+    "brier_score": 0.0016674346869823267,
+    "false_positive_rate": 0.002417100002613081,
+    "confusion_matrix": [
+      [
+        229059,
+        555
+      ],
+      [
+        15,
+        9720
+      ]
+    ]
+  }
+}

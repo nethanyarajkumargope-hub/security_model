@@ -17,6 +17,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import ExtraTreesClassifier, RandomForestClassifier
 from sklearn.frozen import FrozenEstimator
 from sklearn.impute import SimpleImputer
+from sklearn.inspection import permutation_importance
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
@@ -155,6 +156,19 @@ def error_breakdown(frame: pd.DataFrame, labels: np.ndarray,
     return {"false_positives": grouped(0, 1), "false_negatives": grouped(1, 0)}
 
 
+def permutation_features(model: Pipeline, frame: pd.DataFrame, labels: np.ndarray,
+                         seed: int, limit: int = 20) -> list[dict]:
+    result = permutation_importance(
+        model, frame, labels, scoring="balanced_accuracy", n_repeats=3,
+        random_state=seed, n_jobs=-1,
+    )
+    order = np.argsort(result.importances_mean)[::-1][:limit]
+    return [{"feature": str(frame.columns[index]),
+             "importance_mean": float(result.importances_mean[index]),
+             "importance_std": float(result.importances_std[index])}
+            for index in order]
+
+
 def grouped_split(frame: pd.DataFrame, seed: int):
     x = features(frame)
     y = frame["label"].to_numpy(dtype=int)
@@ -192,6 +206,7 @@ def main() -> None:
     parser.add_argument("--output", default="artifacts/security")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--deduplicate", action="store_true")
+    parser.add_argument("--analyze-features", action="store_true")
     args = parser.parse_args()
 
     train = pd.read_csv(args.train, low_memory=False)
@@ -220,6 +235,11 @@ def main() -> None:
     )[:, 1]
     validation_errors = error_breakdown(
         train.iloc[validation_index], y[validation_index], selected_validation_probability
+    )
+    validation_permutation_importance = (
+        permutation_features(fitted_candidates[selected_name], x.iloc[validation_index],
+                             y[validation_index], args.seed)
+        if args.analyze_features else []
     )
     development_index = np.concatenate([fit_index, validation_index])
     final_pipeline = clone(fitted_candidates[selected_name])
@@ -263,6 +283,7 @@ def main() -> None:
         "dropped_columns": list(DROP_COLUMNS),
         "validation_candidates": validation_results,
         "validation_errors": validation_errors,
+        "validation_permutation_importance": validation_permutation_importance,
         "calibration": metrics(y[calibration_index], calibration_probability, selected_threshold),
         "threshold_tuning": metrics(y[threshold_index], threshold_probability, selected_threshold),
         "official_test": metrics(test_y, test_probability, selected_threshold),
@@ -276,8 +297,10 @@ def main() -> None:
 
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=True)
-    joblib.dump({"estimator": calibrated, "threshold": selected_threshold,
-                 "feature_columns": list(x.columns), "selected_model": selected_name},
+    categorical_columns = list(x.select_dtypes(include=["object", "string", "category", "bool"]).columns)
+    joblib.dump({"schema_version": 1, "estimator": calibrated, "threshold": selected_threshold,
+                 "feature_columns": list(x.columns), "categorical_columns": categorical_columns,
+                 "selected_model": selected_name},
                 output / "security_model.joblib", compress=3)
     (output / "metrics.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     pd.DataFrame({"id": test["id"], "attack_cat": test["attack_cat"],

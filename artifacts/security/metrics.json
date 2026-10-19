@@ -1,8 +1,8 @@
 {
-  "created_at_utc": "2026-10-18T10:37:26.235086+00:00",
+  "created_at_utc": "2026-10-19T10:07:40.663811+00:00",
   "task": "UNSW-NB15 binary classification: normal=0, attack=1",
   "selected_model": "random_forest",
-  "threshold": 0.6317766419568049,
+  "threshold": 0.63177664169243,
   "minimum_threshold_tuning_recall": 0.95,
   "versions": {
     "python_packages": {
@@ -60,7 +60,7 @@
       "f1": 0.9653459197615203,
       "roc_auc": 0.9931943015261371,
       "pr_auc": 0.9968163363479465,
-      "brier_score": 0.0313104524724758,
+      "brier_score": 0.03131045247247579,
       "false_positive_rate": 0.07214854111405836,
       "confusion_matrix": [
         [
@@ -272,6 +272,108 @@
       ]
     }
   },
+  "validation_permutation_importance": [
+    {
+      "feature": "service",
+      "importance_mean": 0.013867402680404947,
+      "importance_std": 0.0007991755678363119
+    },
+    {
+      "feature": "sbytes",
+      "importance_mean": 0.010126721264934746,
+      "importance_std": 0.0006971487653840257
+    },
+    {
+      "feature": "ct_dst_src_ltm",
+      "importance_mean": 0.009322545643700053,
+      "importance_std": 0.0005222359361842945
+    },
+    {
+      "feature": "synack",
+      "importance_mean": 0.008118805913244542,
+      "importance_std": 0.0005081696868178461
+    },
+    {
+      "feature": "ct_srv_dst",
+      "importance_mean": 0.008068075857636062,
+      "importance_std": 0.0009544453128737179
+    },
+    {
+      "feature": "tcprtt",
+      "importance_mean": 0.007884920971936679,
+      "importance_std": 0.0006525910438054921
+    },
+    {
+      "feature": "smean",
+      "importance_mean": 0.007693353748248903,
+      "importance_std": 0.000385474856936469
+    },
+    {
+      "feature": "dmean",
+      "importance_mean": 0.007656931982297184,
+      "importance_std": 0.0007798808721519504
+    },
+    {
+      "feature": "ct_srv_src",
+      "importance_mean": 0.006893281884937208,
+      "importance_std": 0.0018959048267121847
+    },
+    {
+      "feature": "dload",
+      "importance_mean": 0.005416923883044526,
+      "importance_std": 0.0006236275128805674
+    },
+    {
+      "feature": "ct_dst_sport_ltm",
+      "importance_mean": 0.004973154766463687,
+      "importance_std": 0.0006320010755542502
+    },
+    {
+      "feature": "ct_src_ltm",
+      "importance_mean": 0.004890421251116532,
+      "importance_std": 0.0008321154300510892
+    },
+    {
+      "feature": "dbytes",
+      "importance_mean": 0.004657165406388793,
+      "importance_std": 0.0003192954253194946
+    },
+    {
+      "feature": "ct_dst_ltm",
+      "importance_mean": 0.0036736314241642143,
+      "importance_std": 0.0007812910139859033
+    },
+    {
+      "feature": "sinpkt",
+      "importance_mean": 0.003400376741070484,
+      "importance_std": 0.00011395288649842813
+    },
+    {
+      "feature": "sloss",
+      "importance_mean": 0.003116602977953057,
+      "importance_std": 0.0003534549529508233
+    },
+    {
+      "feature": "ct_src_dport_ltm",
+      "importance_mean": 0.0029914493339147454,
+      "importance_std": 0.0005621693838168814
+    },
+    {
+      "feature": "rate",
+      "importance_mean": 0.002908503681348873,
+      "importance_std": 0.0002575445772428743
+    },
+    {
+      "feature": "dloss",
+      "importance_mean": 0.002461786588933738,
+      "importance_std": 0.00018398979674733558
+    },
+    {
+      "feature": "sjit",
+      "importance_mean": 0.002084328640931258,
+      "importance_std": 0.0003519648247934953
+    }
+  ],
   "calibration": {
     "accuracy": 0.9579536721923373,
     "balanced_accuracy": 0.9541428126360572,
@@ -280,7 +382,7 @@
     "f1": 0.969386939493246,
     "roc_auc": 0.9939385319221252,
     "pr_auc": 0.9972501032579316,
-    "brier_score": 0.028985537564809136,
+    "brier_score": 0.028985537565809245,
     "false_positive_rate": 0.05586096825678312,
     "confusion_matrix": [
       [
@@ -301,7 +403,7 @@
     "f1": 0.9613830850093393,
     "roc_auc": 0.9916027336763772,
     "pr_auc": 0.9960364438182319,
-    "brier_score": 0.03521238818553946,
+    "brier_score": 0.03521238818733949,
     "false_positive_rate": 0.06504065040650407,
     "confusion_matrix": [
       [
@@ -321,8 +423,8 @@
     "recall": 0.9751610341480632,
     "f1": 0.9130358452180558,
     "roc_auc": 0.9835923302195693,
-    "pr_auc": 0.9876825008495286,
-    "brier_score": 0.08600791762780984,
+    "pr_auc": 0.9876825008495285,
+    "brier_score": 0.0860079176008775,
     "false_positive_rate": 0.19716216216216217,
     "confusion_matrix": [
       [
@@ -342,52 +444,52 @@
   "attack_categories": {
     "Analysis": {
       "support": 677,
-      "mean_risk": 0.9801305278771207,
+      "mean_risk": 0.9801305278585662,
       "predicted_attack_rate": 0.9985228951255539
     },
     "Backdoor": {
       "support": 583,
-      "mean_risk": 0.9880941660235222,
+      "mean_risk": 0.9880941660116775,
       "predicted_attack_rate": 1.0
     },
     "DoS": {
       "support": 4089,
-      "mean_risk": 0.9883699785620147,
+      "mean_risk": 0.9883699785510576,
       "predicted_attack_rate": 0.9985326485693323
     },
     "Exploits": {
       "support": 11132,
-      "mean_risk": 0.9839021180926086,
+      "mean_risk": 0.9839021180791823,
       "predicted_attack_rate": 0.9939813151275602
     },
     "Fuzzers": {
       "support": 6062,
-      "mean_risk": 0.8257407367597349,
+      "mean_risk": 0.8257407366560868,
       "predicted_attack_rate": 0.8281095348069943
     },
     "Generic": {
       "support": 18871,
-      "mean_risk": 0.9930618350842035,
+      "mean_risk": 0.9930618350773831,
       "predicted_attack_rate": 0.9999470086375921
     },
     "Normal": {
       "support": 37000,
-      "mean_risk": 0.24445754048132448,
+      "mean_risk": 0.24445754040248618,
       "predicted_attack_rate": 0.19716216216216217
     },
     "Reconnaissance": {
       "support": 3496,
-      "mean_risk": 0.9883325735644081,
+      "mean_risk": 0.9883325735533983,
       "predicted_attack_rate": 0.9985697940503433
     },
     "Shellcode": {
       "support": 378,
-      "mean_risk": 0.9714108823165984,
+      "mean_risk": 0.9714108822936184,
       "predicted_attack_rate": 0.9894179894179894
     },
     "Worms": {
       "support": 44,
-      "mean_risk": 0.9805086012106798,
+      "mean_risk": 0.9805086011928211,
       "predicted_attack_rate": 1.0
     }
   },

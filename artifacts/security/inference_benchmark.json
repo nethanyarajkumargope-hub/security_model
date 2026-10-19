@@ -1,0 +1,31 @@
+{
+  "model": "random_forest",
+  "threshold": 0.63177664169243,
+  "model_file_bytes": 32638078,
+  "batches": [
+    {
+      "rows": 1,
+      "repeats": 10,
+      "median_seconds": 0.042578349995892495,
+      "milliseconds_per_row": 42.578349995892495,
+      "rows_per_second": 23.486114424266542,
+      "peak_python_allocation_bytes": 260811
+    },
+    {
+      "rows": 100,
+      "repeats": 10,
+      "median_seconds": 0.05641685001319274,
+      "milliseconds_per_row": 0.5641685001319274,
+      "rows_per_second": 1772.5200888850688,
+      "peak_python_allocation_bytes": 378255
+    },
+    {
+      "rows": 1000,
+      "repeats": 10,
+      "median_seconds": 0.08557939999445807,
+      "milliseconds_per_row": 0.08557939999445807,
+      "rows_per_second": 11685.05504905103,
+      "peak_python_allocation_bytes": 1799592
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "created_at_utc": "2026-10-19T11:30:20.325564+00:00",
+  "task": "NF-UNSW-NB15-v2 binary classification: benign=0, attack=1",
+  "selected_model": "hist_gradient_boosting",
+  "threshold": 0.15876108216208243,
+  "minimum_threshold_tuning_recall": 0.95,
+  "versions": {
+    "scikit_learn": "1.9.1",
+    "pandas": "3.0.1",
+    "numpy": "2.5.4"
+  },
+  "predictor_count": 41,
+  "dropped_columns": [
+    "IPV4_SRC_ADDR",
+    "IPV4_DST_ADDR",
+    "Label",
+    "Attack"
+  ],
+  "split_strategy": "10-fold stratified grouping by source-destination IP pair",
+  "splits": {
+    "fit": {
+      "rows": 1433380,
+      "attacks": 56275,
+      "attack_fraction": 0.039260349663034225,
+      "ip_pairs": 191
+    },
+    "validation": {
+      "rows": 239565,
+      "attacks": 10063,
+      "attack_fraction": 0.042005301275228016,
+      "ip_pairs": 31
+    },
+    "calibration": {
+      "rows": 238943,
+      "attacks": 9440,
+      "attack_fraction": 0.03950733020008956,
+      "ip_pairs": 21
+    },
+    "threshold_tuning": {
+      "rows": 239038,
+      "attacks": 9540,
+      "attack_fraction": 0.03990997247299592,
+      "ip_pairs": 35
+    },
+    "held_out_test": {
+      "rows": 239349,
+      "attacks": 9735,
+      "attack_fraction": 0.04067282503791535,
+      "ip_pairs": 15
+    }
+  },
+  "validation": {
+    "accuracy": 0.9944357481268132,
+    "balanced_accuracy": 0.9965257857727409,
+    "precision": 0.883837495603236,
+    "recall": 0.9988075126701779,
+    "f1": 0.9378119897364124,
+    "roc_auc": 0.9996219415108802,
+    "pr_auc": 0.9910397441735215,
+    "brier_score": 0.004920052459874935,
+    "false_positive_rate": 0.005755941124696081,
+    "confusion_matrix": [
+      [
+        228181,
+        1321
+      ],
+      [
+        12,
+        10051
+      ]
+    ]
+  },
+  "threshold_tuning": {
+    "accuracy": 0.9952392506630745,
+    "balanced_accuracy": 0.996917888762517,
+    "precision": 0.8943119954946499,
+    "recall": 0.9987421383647799,
+    "f1": 0.9436466277112013,
+    "roc_auc": 0.9996415782469925,
+    "pr_auc": 0.9904961070712459,
+    "brier_score": 0.002637120552232734,
+    "false_positive_rate": 0.00490636083974588,
+    "confusion_matrix": [
+      [
+        228372,
+        1126
+      ],
+      [
+        12,
+        9528
+      ]
+    ]
+  },
+  "held_out_test": {
+    "accuracy": 0.9976185402905381,
+    "balanced_accuracy": 0.9980210339740401,
+    "precision": 0.945985401459854,
+    "recall": 0.9984591679506933,
+    "f1": 0.9715142428785607,
+    "roc_auc": 0.9997928832385495,
+    "pr_auc": 0.9944505627960805,
+    "brier_score": 0.0016674346869823267,
+    "false_positive_rate": 0.002417100002613081,
+    "confusion_matrix": [
+      [
+        229059,
+        555
+      ],
+      [
+        15,
+        9720
+      ]
+    ]
+  },
+  "held_out_attack_categories": {
+    "Analysis": {
+      "support": 520,
+      "mean_risk": 0.9975711227845601,
+      "predicted_attack_rate": 1.0
+    },
+    "Backdoor": {
+      "support": 570,
+      "mean_risk": 0.9949954431139194,
+      "predicted_attack_rate": 1.0
+    },
+    "Benign": {
+      "support": 229614,
+      "mean_risk": 0.0017098441106985296,
+      "predicted_attack_rate": 0.002417100002613081
+    },
+    "DoS": {
+      "support": 885,
+      "mean_risk": 0.9692497839299542,
+      "predicted_attack_rate": 0.9988700564971752
+    },
+    "Exploits": {
+      "support": 3486,
+      "mean_risk": 0.9637030798401263,
+      "predicted_attack_rate": 1.0
+    },
+    "Fuzzers": {
+      "support": 2104,
+      "mean_risk": 0.9083382491770225,
+      "predicted_attack_rate": 0.9933460076045627
+    },
+    "Generic": {
+      "support": 595,
+      "mean_risk": 0.9785784129710365,
+      "predicted_attack_rate": 1.0
+    },
+    "Reconnaissance": {
+      "support": 1417,
+      "mean_risk": 0.9955153065369488,
+      "predicted_attack_rate": 1.0
+    },
+    "Shellcode": {
+      "support": 150,
+      "mean_risk": 0.9844000590878307,
+      "predicted_attack_rate": 1.0
+    },
+    "Worms": {
+      "support": 8,
+      "mean_risk": 0.983876806131015,
+      "predicted_attack_rate": 1.0
+    }
+  }
+}
